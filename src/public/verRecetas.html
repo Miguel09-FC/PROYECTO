@@ -1,0 +1,30 @@
+<!-- public/verRecetas.ejs -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Recetas</title>
+</head>
+<body>
+    <h1>Recetas</h1>
+
+    <% if (recetas.length > 0) { %>
+        <ul>
+            <% recetas.forEach((receta) => { %>
+                <li>
+                    <strong>Usuario:</strong> <%= receta.Usuario %><br>
+                    <strong>Título:</strong> <%= receta.titulo %><br>
+                    <strong>Contenido:</strong> <%= receta.contenido %>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No hay recetas disponibles.</p>
+    <% } %>
+
+    <!-- Agrega aquí cualquier otro contenido que desees mostrar -->
+
+</body>
+</html>

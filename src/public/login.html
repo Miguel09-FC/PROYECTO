@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión</title>
+  <head>
+    <!-- Agrega SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10"></link>
+  </head>
+  
+  <body>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script>
+    // Verifica si hay un mensaje de éxito en la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const successMessage = urlParams.get('success');
+
+    if (successMessage === 'true') {
+      // Muestra un popup de éxito con SweetAlert2
+      Swal.fire({
+        title: 'Registro exitoso',
+        text: 'Usuario registrado exitosamente',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+      });
+    }
+  </script>
+  <h1>Iniciar Sesión</h1>
+  <form id="loginForm" action="/login" method="post">
+    <label for="username">Nombre de usuario:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Iniciar Sesión</button>
+  </form>
+
+  <p>¿No tienes una cuenta? <a href="/register.html">Regístrate aquí</a></p>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (!username || !password) {
+        event.preventDefault();
+        alert('Por favor, completa todos los campos.');
+      }
+    });
+    </script>
+</body>
+</html>

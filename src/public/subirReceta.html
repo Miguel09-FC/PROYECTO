@@ -1,0 +1,15 @@
+<!-- subirReceta.html -->
+
+<h2>Subir Receta</h2>
+
+<p>Hola <%= username %>, aquí puedes subir recetas.</p>
+
+<form action="/subirReceta" method="post">
+  <label for="titulo">Titulo:</label>
+  <input type="text" id="titulo" name="titulo" required>
+
+  <label for="contenido">Contenido:</label>
+  <textarea id="contenido" name="contenido" required></textarea>
+
+  <button type="submit">Subir Receta</button>
+</form>
